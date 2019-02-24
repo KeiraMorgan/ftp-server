@@ -131,8 +131,8 @@ int main(){
 void* commands(void* clientSocket){
     char buf[500];
     int byteRecv;
-    if(byteRecv = recv((int*)clientSocket, buf, 500, 0) == 0){
-        close((int*)clientSocket);
+    if(byteRecv = recv(*(int*)clientSocket, buf, 500, 0) == 0){
+        close(*(int*)clientSocket);
     } else if(byteRecv < 0){
         perror("recv");
         exit(1);
